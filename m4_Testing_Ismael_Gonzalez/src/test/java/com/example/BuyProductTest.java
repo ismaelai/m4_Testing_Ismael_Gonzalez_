@@ -73,11 +73,12 @@ class BuyProductTest {
         driver.findElement(By.xpath("//*[@id=\"add_to_cart\"]/button/span")).click();
 
         new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span/text()")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a")));
 
 
         //Click on proceed
-        driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span/text()")).click();
+        WebElement proceed = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a"));
+        proceed.click();
 
         //Checkout page Proceed
         new WebDriverWait(driver, Duration.ofSeconds(2))
